@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Flag Lab</title>
+  <meta name="theme-color" content="#0f1533" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon-512.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="app">
+      <h1>🚩 Flag Lab</h1>
+      <span class="pill" id="flag-count"></span>
+    </header>
+    <main class="tiles" id="tiles"></main>
+  </div>
+
+  <script>const ROOT = '.';</script>
+  <script src="js/common.js"></script>
+  <script src="js/registry.js"></script>
+  <script>
+    const tiles = document.getElementById('tiles');
+    for (const g of GAMES) {
+      const a = el('a', 'tile');
+      a.href = `games/${g.id}/index.html`;
+      a.style.setProperty('--tile-color', g.color);
+      a.append(
+        el('span', 'emoji', g.emoji),
+        el('h2', '', g.title),
+        el('p', '', g.blurb),
+      );
+      const best = getBest(g.bestKey);
+      if (best > 0) a.append(el('div', 'best', g.bestLabel(best)));
+      tiles.append(a);
+    }
+
+    FLAG_NAMES.then((names) => {
+      document.getElementById('flag-count').textContent =
+        `${Object.keys(names).length} flags`;
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
