@@ -1,5 +1,13 @@
 /* Offline-first service worker: precaches the app shell and every flag. */
-const CACHE = 'flaglab-v3';
+const CACHE = 'flaglab-v4';
+
+const HISTORY_FLAGS = [
+  'ussr', 'ddr', 'czechoslovakia', 'yugoslavia', 'za1928', 'rhodesia',
+  'zaire', 'canada-ensign', 'ottoman', 'libya1977', 'myanmar1974',
+  'malawi2010', 'georgia1990', 'lesotho1987', 'south-yemen', 'uar',
+  'laos-kingdom', 'upper-volta', 'hk-colonial', 'mauritania-old',
+  'tanganyika', 'sikkim', 'venezuela7', 'ethiopia-imperial',
+];
 
 const CORE = [
   './',
@@ -21,6 +29,9 @@ const CORE = [
   './games/zoomed-in/game.js',
   './games/flag-forge/index.html',
   './games/flag-forge/game.js',
+  './games/time-machine/index.html',
+  './games/time-machine/game.js',
+  ...HISTORY_FLAGS.map((f) => `./assets/history/${f}.svg`),
 ];
 
 self.addEventListener('install', (e) => {

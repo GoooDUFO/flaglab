@@ -394,6 +394,23 @@ header.app h1 {
   .g-zoom .fact, .g-zoom .big-btn { grid-column: 2; }
   .g-zoom .end-card { grid-column: 1 / -1; }
 
+  /* Time Machine: flag left, questions right */
+  .g-time #stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 0 14px;
+    align-items: start;
+  }
+  .g-time #stage > .flag-stage { grid-column: 1; grid-row: 1 / span 8; }
+  .g-time #stage > .flag-stage img { width: min(100%, 360px); }
+  .g-time .flag-stage { padding: 16px 14px; gap: 8px; }
+  .g-time .flag-stage .country { font-size: 1.1rem; }
+  .g-time .prompt, .g-time .choices, .g-time .fact, .g-time #stage > .big-btn { grid-column: 2; }
+  .g-time .prompt { text-align: left; margin: 0 0 10px; }
+  .g-time .choices.quiz { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .g-time .choices.quiz .choice { padding: 12px; font-size: 0.95rem; }
+  .g-time .end-card { grid-column: 1 / -1; }
+
   /* Flag Forge: canvas left, toolbox right */
   .g-forge .prompt { margin-bottom: 8px; }
   .g-forge #stage {

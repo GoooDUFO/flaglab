@@ -28,6 +28,15 @@ const GAMES = [
     bestLabel: (b) => `Best: ${b} / 60`,
   },
   {
+    id: 'time-machine',
+    emoji: '⏳',
+    title: 'Time Machine',
+    blurb: 'Flags that no longer fly — whose were they?',
+    color: '#ff9f43',
+    bestKey: 'time-machine',
+    bestLabel: (b) => `Best: ${b} / 16`,
+  },
+  {
     id: 'zoomed-in',
     emoji: '🔬',
     title: 'Way Too Close',
