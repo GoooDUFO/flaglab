@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Flag Forge — Flag Lab</title>
+  <meta name="theme-color" content="#0f1533" />
+  <link rel="icon" href="../../icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body class="g-forge">
+  <div class="wrap">
+    <header class="app">
+      <a class="back" href="../../index.html">‹ Back</a>
+      <h1>⚒️ Flag Forge</h1>
+      <span class="pill" id="score-pill">0</span>
+    </header>
+    <div class="status-row">
+      <span id="round-label"></span>
+      <span id="hint-label">Pick a shape, tap a color, tap the flag to paint</span>
+    </div>
+    <main id="stage"></main>
+  </div>
+  <script>const ROOT = '../..';</script>
+  <script src="../../js/common.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

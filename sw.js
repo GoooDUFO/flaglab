@@ -1,5 +1,5 @@
 /* Offline-first service worker: precaches the app shell and every flag. */
-const CACHE = 'flaglab-v2';
+const CACHE = 'flaglab-v3';
 
 const CORE = [
   './',
@@ -19,6 +19,8 @@ const CORE = [
   './games/faked-flags/game.js',
   './games/zoomed-in/index.html',
   './games/zoomed-in/game.js',
+  './games/flag-forge/index.html',
+  './games/flag-forge/game.js',
 ];
 
 self.addEventListener('install', (e) => {

@@ -19,6 +19,15 @@ const GAMES = [
     bestLabel: (b) => `Best: ${b} / 10`,
   },
   {
+    id: 'flag-forge',
+    emoji: '⚒️',
+    title: 'Flag Forge',
+    blurb: 'Build flags from memory, piece by piece',
+    color: 'var(--purple)',
+    bestKey: 'flag-forge',
+    bestLabel: (b) => `Best: ${b} / 60`,
+  },
+  {
     id: 'zoomed-in',
     emoji: '🔬',
     title: 'Way Too Close',

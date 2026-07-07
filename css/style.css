@@ -229,6 +229,79 @@ header.app h1 {
   font-size: 1.05rem;
 }
 
+/* ---------- flag forge ---------- */
+.forge-canvas {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.forge-canvas svg {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+.forge-canvas [data-region] { cursor: pointer; }
+.forge-canvas.small { padding: 8px; max-width: none; margin: 0; }
+
+.forge-tools { margin-top: 14px; }
+.tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.tool-btn {
+  background: var(--card);
+  border: 3px solid transparent;
+  border-radius: 14px;
+  color: var(--text);
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.tool-btn:active { transform: scale(0.94); }
+.tool-btn.active { border-color: var(--yellow); background: var(--card-hi); }
+.swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  padding: 0;
+}
+.swatch:active { transform: scale(0.92); }
+.swatch.active { border-color: var(--yellow); transform: scale(1.12); }
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.compare-cell {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 10px;
+  text-align: center;
+}
+.compare-cell img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+.compare-label {
+  font-weight: 900;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
 /* ---------- landscape lock ---------- */
 /* Shown by CSS alone: portrait + touch device = "rotate your phone".
    Desktop windows (fine pointer) never see it. */
@@ -320,6 +393,23 @@ header.app h1 {
   .g-zoom .choice { padding: 12px; font-size: 0.95rem; }
   .g-zoom .fact, .g-zoom .big-btn { grid-column: 2; }
   .g-zoom .end-card { grid-column: 1 / -1; }
+
+  /* Flag Forge: canvas left, toolbox right */
+  .g-forge .prompt { margin-bottom: 8px; }
+  .g-forge #stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 0 14px;
+    align-items: start;
+  }
+  .g-forge .prompt { grid-column: 1 / -1; }
+  .g-forge .forge-canvas { grid-column: 1; grid-row: 2; max-width: none; margin: 0; }
+  .g-forge .forge-tools { grid-column: 2; grid-row: 2 / span 2; margin-top: 0; }
+  .g-forge #stage > .big-btn { grid-column: 1; grid-row: 3; }
+  .g-forge .tool-row { justify-content: flex-start; }
+  .g-forge .compare { grid-column: 1; grid-row: 2; }
+  .g-forge .fact { grid-column: 2; grid-row: 2; margin-top: 0; }
+  .g-forge .end-card { grid-column: 1 / -1; }
 }
 
 @keyframes rise {
