@@ -37,6 +37,15 @@ const GAMES = [
     bestLabel: (b) => `Best: ${b} / 16`,
   },
   {
+    id: 'speed-sort',
+    emoji: '⚡',
+    title: 'Speed Sort',
+    blurb: '45 seconds, two bins — sort flags fast!',
+    color: 'var(--green)',
+    bestKey: 'speed-sort',
+    bestLabel: (b) => `Best: ${b} sorted`,
+  },
+  {
     id: 'zoomed-in',
     emoji: '🔬',
     title: 'Way Too Close',

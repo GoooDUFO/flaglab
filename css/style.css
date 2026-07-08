@@ -229,6 +229,87 @@ header.app h1 {
   font-size: 1.05rem;
 }
 
+/* ---------- music toggle ---------- */
+.music-btn {
+  background: var(--card);
+  border: none;
+  border-radius: 14px;
+  padding: 8px 11px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.music-btn:active { transform: scale(0.92); }
+
+/* ---------- speed sort ---------- */
+.timer-track {
+  height: 10px;
+  background: var(--card);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.timer-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--yellow));
+  border-radius: 999px;
+}
+.sort-arena {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1.3fr) 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+.bin {
+  background: var(--card);
+  border: 3px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  font-weight: 900;
+  font-size: 1.05rem;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 180px;
+}
+.bin:hover { background: var(--card-hi); }
+.bin:active { transform: scale(0.96); }
+.bin.hit { border-color: var(--green); background: #1d4d38; }
+.bin.miss { border-color: var(--red); background: #55283a; }
+.sort-flag {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.sort-flag img {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+.sort-name { font-weight: 900; text-align: center; }
+.sort-toast {
+  min-height: 30px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 800;
+  color: var(--yellow);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.sort-toast.show { opacity: 1; }
+
 /* ---------- flag forge ---------- */
 .forge-canvas {
   background: var(--card);
@@ -393,6 +474,12 @@ header.app h1 {
   .g-zoom .choice { padding: 12px; font-size: 0.95rem; }
   .g-zoom .fact, .g-zoom .big-btn { grid-column: 2; }
   .g-zoom .end-card { grid-column: 1 / -1; }
+
+  /* Speed Sort: tighter center flag so bins stay huge */
+  .g-sort .sort-flag { padding: 10px; }
+  .g-sort .sort-flag img { max-width: 220px; }
+  .g-sort .bin { min-height: 200px; font-size: 1.1rem; }
+  .g-sort .timer-track { margin-bottom: 8px; }
 
   /* Time Machine: flag left, questions right */
   .g-time #stage {

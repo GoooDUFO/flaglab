@@ -127,6 +127,7 @@ function points() {
 function answer(chosen, code, buttons, img) {
   cancelAnimationFrame(raf);
   const earned = chosen === code ? points() : 0;
+  if (earned) SFX.good(); else SFX.bad();
   buttons.forEach((b) => {
     b.disabled = true;
     if (b.textContent === names[code]) b.classList.add('correct');

@@ -71,9 +71,11 @@ function answer(i, item, buttons) {
     score++;
     streak++;
     buttons[i].classList.add('pop');
+    SFX.good();
   } else {
     streak = 0;
     buttons[i].classList.add('wrong');
+    SFX.bad();
   }
   scorePill.textContent = score;
 

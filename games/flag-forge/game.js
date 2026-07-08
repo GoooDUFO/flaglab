@@ -321,6 +321,9 @@ function grade(s, spec) {
 
 function reveal(spec) {
   const { pts, diffs } = grade(state, spec);
+  if (pts === 10) SFX.fanfare();
+  else if (pts >= 7) SFX.good();
+  else SFX.bad();
   score += pts;
   scorePill.textContent = score;
 

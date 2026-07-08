@@ -141,8 +141,9 @@ function askWho(item, card) {
     b.onclick = () => {
       buttons.forEach((x) => (x.disabled = true));
       const right = name === item.name;
-      if (right) { score++; b.classList.add('correct', 'pop'); }
+      if (right) { score++; b.classList.add('correct', 'pop'); SFX.good(); }
       else {
+        SFX.bad();
         b.classList.add('wrong');
         buttons.find((x) => x.textContent === item.name).classList.add('correct');
       }
@@ -166,8 +167,9 @@ function askWhen(item, prompt, grid) {
     b.onclick = () => {
       buttons.forEach((x) => (x.disabled = true));
       const right = year === item.until;
-      if (right) { score++; b.classList.add('correct', 'pop'); }
+      if (right) { score++; b.classList.add('correct', 'pop'); SFX.good(); }
       else {
+        SFX.bad();
         b.classList.add('wrong');
         buttons.find((x) => x.textContent === String(item.until)).classList.add('correct');
       }

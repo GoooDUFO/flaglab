@@ -147,7 +147,7 @@ function answer(saidReal, item, realBtn, fakeBtn) {
   const right = saidReal === isReal;
   (isReal ? realBtn : fakeBtn).classList.add('correct');
   if (!right) (saidReal ? realBtn : fakeBtn).classList.add('wrong');
-  if (right) score++;
+  if (right) { score++; SFX.good(); } else SFX.bad();
   scorePill.textContent = score;
 
   const fact = el('div', 'fact' + (right ? '' : ' bad'),
