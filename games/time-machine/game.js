@@ -1,5 +1,6 @@
 /* Time Machine: flags that no longer fly.
-   Two questions per flag — whose was it, and when did it stop flying?
+   One question per flag — whose was it — plus an optional second
+   (when did it stop flying?) behind the Year quiz toggle.
    `wrongs` are hand-picked plausible decoys, not random ones. */
 
 const HISTORY = [
@@ -82,7 +83,21 @@ const stage = document.getElementById('stage');
 const scorePill = document.getElementById('score-pill');
 const roundLabel = document.getElementById('round-label');
 
-let deck, round, score;
+let deck, round, score, maxScore;
+
+const YEARS_KEY = 'time-machine:years';
+let askYears = localStorage.getItem(YEARS_KEY) === '1';
+const yearToggle = document.getElementById('year-toggle');
+yearToggle.onclick = () => {
+  askYears = !askYears;
+  localStorage.setItem(YEARS_KEY, askYears ? '1' : '0');
+  paintToggle();
+};
+function paintToggle() {
+  yearToggle.textContent = `📅 Year quiz: ${askYears ? 'ON' : 'OFF'}`;
+  yearToggle.classList.toggle('on', askYears);
+}
+paintToggle();
 
 FLAG_NAMES.then(() => start());
 
@@ -94,6 +109,7 @@ function start() {
   deck = shuffle(HISTORY).slice(0, ROUNDS);
   round = 0;
   score = 0;
+  maxScore = 0;
   next();
 }
 
@@ -110,7 +126,7 @@ function yearDecoys(real) {
 function next() {
   if (round >= deck.length) {
     roundLabel.textContent = 'Round over!';
-    showEndCard(stage, { score, max: ROUNDS * 2, bestKey: 'time-machine', playAgain: start });
+    showEndCard(stage, { score, max: maxScore, bestKey: 'time-machine', playAgain: start });
     return;
   }
 
@@ -141,6 +157,7 @@ function askWho(item, card) {
     b.onclick = () => {
       buttons.forEach((x) => (x.disabled = true));
       const right = name === item.name;
+      maxScore++;
       if (right) { score++; b.classList.add('correct', 'pop'); SFX.good(); }
       else {
         SFX.bad();
@@ -149,7 +166,8 @@ function askWho(item, card) {
       }
       scorePill.textContent = score;
       card.querySelector('.country').textContent = item.name;
-      setTimeout(() => askWhen(item, prompt, grid), 900);
+      if (askYears) setTimeout(() => askWhen(item, prompt, grid), 900);
+      else showFact(item, right);
     };
     buttons.push(b);
     grid.append(b);
@@ -167,6 +185,7 @@ function askWhen(item, prompt, grid) {
     b.onclick = () => {
       buttons.forEach((x) => (x.disabled = true));
       const right = year === item.until;
+      maxScore++;
       if (right) { score++; b.classList.add('correct', 'pop'); SFX.good(); }
       else {
         SFX.bad();
@@ -174,15 +193,18 @@ function askWhen(item, prompt, grid) {
         buttons.find((x) => x.textContent === String(item.until)).classList.add('correct');
       }
       scorePill.textContent = score;
-
-      stage.append(el('div', 'fact' + (right ? '' : ' bad'),
-        `${right ? '✅' : '❌'} <b>${item.until}.</b> ${item.fact}`));
-      const btn = el('button', 'big-btn', round < deck.length ? 'Next flag' : 'See my score');
-      btn.onclick = next;
-      stage.append(btn);
-      btn.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      showFact(item, right);
     };
     buttons.push(b);
     grid.append(b);
   });
+}
+
+function showFact(item, right) {
+  stage.append(el('div', 'fact' + (right ? '' : ' bad'),
+    `${right ? '✅' : '❌'} <b>Flew until ${item.until}.</b> ${item.fact}`));
+  const btn = el('button', 'big-btn', round < deck.length ? 'Next flag' : 'See my score');
+  btn.onclick = next;
+  stage.append(btn);
+  btn.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }

@@ -1,5 +1,5 @@
 /* Offline-first service worker: precaches the app shell and every flag. */
-const CACHE = 'flaglab-v5';
+const CACHE = 'flaglab-v6';
 
 const HISTORY_FLAGS = [
   'ussr', 'ddr', 'czechoslovakia', 'yugoslavia', 'za1928', 'rhodesia',

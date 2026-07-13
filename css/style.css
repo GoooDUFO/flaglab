@@ -241,6 +241,25 @@ header.app h1 {
 }
 .music-btn:active { transform: scale(0.92); }
 
+/* ---------- mode toggle (Time Machine year quiz) ---------- */
+.mode-toggle {
+  background: var(--card);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mode-toggle.on {
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+.mode-toggle:active { transform: scale(0.95); }
+
 /* ---------- speed sort ---------- */
 .timer-track {
   height: 10px;
