@@ -46,6 +46,15 @@ const GAMES = [
     bestLabel: (b) => `Best: ${b} sorted`,
   },
   {
+    id: 'flag-mashup',
+    emoji: '🧬',
+    title: 'Frankenflag',
+    blurb: 'Which flags were stitched into this monster?',
+    color: '#ff6bd6',
+    bestKey: 'flag-mashup',
+    bestLabel: (b) => `Best: ${b} donors`,
+  },
+  {
     id: 'zoomed-in',
     emoji: '🔬',
     title: 'Way Too Close',

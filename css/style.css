@@ -329,6 +329,50 @@ header.app h1 {
 }
 .sort-toast.show { opacity: 1; }
 
+/* ---------- frankenflag ---------- */
+.mash-box {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 3 / 2;
+  margin: 0 auto 14px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  border: 4px solid var(--card-hi);
+}
+.mash-box img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mash-choices .choice { padding: 12px; font-size: 0.95rem; }
+.choice.picked { border-color: var(--purple); background: var(--card-hi); }
+.choice.missed { border-color: var(--yellow); }
+.mash-reveal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.mash-donor {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 8px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mash-donor img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+
 /* ---------- flag forge ---------- */
 .forge-canvas {
   background: var(--card);
@@ -493,6 +537,19 @@ header.app h1 {
   .g-zoom .choice { padding: 12px; font-size: 0.95rem; }
   .g-zoom .fact, .g-zoom .big-btn { grid-column: 2; }
   .g-zoom .end-card { grid-column: 1 / -1; }
+
+  /* Frankenflag: monster left, suspects right */
+  .g-mash #stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 0 14px;
+    align-items: start;
+  }
+  .g-mash .mash-box { grid-column: 1; grid-row: 1; width: 100%; margin: 0 0 10px; }
+  .g-mash .mash-reveal { grid-column: 1; grid-row: 2; margin-top: 0; }
+  .g-mash #stage .choices { grid-column: 2; grid-row: 1 / span 3; gap: 10px; }
+  .g-mash .fact, .g-mash #stage > .big-btn { grid-column: 2; }
+  .g-mash .end-card { grid-column: 1 / -1; }
 
   /* Speed Sort: tighter center flag so bins stay huge */
   .g-sort .sort-flag { padding: 10px; }

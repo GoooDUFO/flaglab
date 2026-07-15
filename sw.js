@@ -33,6 +33,8 @@ const CORE = [
   './games/time-machine/game.js',
   './games/speed-sort/index.html',
   './games/speed-sort/game.js',
+  './games/flag-mashup/index.html',
+  './games/flag-mashup/game.js',
   './js/music.js',
   ...HISTORY_FLAGS.map((f) => `./assets/history/${f}.svg`),
 ];
