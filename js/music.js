@@ -15,6 +15,7 @@ const AudioKit = (() => {
     'g-mash':  { bpm: 116, root: 46, prog: [0, 5, 10, 8] },
     'g-ratio': { bpm: 108, root: 47, prog: [0, 10, 5, 3] },
     'g-fam':   { bpm: 114, root: 44, prog: [0, 3, 10, 5] },
+    'g-studio':{ bpm: 96,  root: 48, prog: [0, 5, 7, 3] },
   };
   const PENT = [0, 3, 5, 7, 10]; // minor pentatonic
   const ARP = [0, 2, 4, 2, 1, 3, 4, 3, 0, 2, 4, 2, 3, 4, 2, 1];

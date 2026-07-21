@@ -73,6 +73,14 @@ const GAMES = [
     bestLabel: (b) => `Best: ${b} sorted`,
   },
   {
+    id: 'flag-studio',
+    emoji: '🎨',
+    title: 'Flag Studio',
+    blurb: 'Design your own territory’s flag & save it',
+    color: '#ff8fb1',
+    bestKey: null,
+  },
+  {
     id: 'zoomed-in',
     emoji: '🔬',
     title: 'Way Too Close',
