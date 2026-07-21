@@ -490,11 +490,13 @@ header.app h1 {
   .end-card { padding: 20px; }
   .end-card .big { font-size: 2rem; margin: 2px 0; }
 
-  /* Odd One Out: all four options in one row */
-  .g-odd .choices { grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  .g-odd .choices.text-only { grid-template-columns: 1fr 1fr; }
-  .g-odd .choice { padding: 10px; font-size: 0.9rem; gap: 6px; }
-  .g-odd .choice img { max-width: 150px; }
+  /* Odd One Out & Ratio Nerd: all four options in one row */
+  .g-odd .choices, .g-ratio .choices { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .g-odd .choices.text-only, .g-ratio .choices.text-only { grid-template-columns: 1fr 1fr; }
+  .g-odd .choice, .g-ratio .choice { padding: 10px; font-size: 0.9rem; gap: 6px; }
+  .g-odd .choice img, .g-ratio .choice img { max-width: 150px; }
+  .g-ratio .flag-stage { padding: 10px; margin-bottom: 10px; }
+  .g-ratio .flag-stage img { width: min(100%, 300px); aspect-ratio: auto; max-height: 130px; }
 
   /* Fake Flag Detector: flag on the left, verdict on the right */
   .g-fake #stage {

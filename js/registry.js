@@ -55,6 +55,15 @@ const GAMES = [
     bestLabel: (b) => `Best: ${b} donors`,
   },
   {
+    id: 'ratio-nerd',
+    emoji: '📐',
+    title: 'Ratio Nerd',
+    blurb: 'Proportion pedantry — how long is that flag really?',
+    color: '#5aa9e6',
+    bestKey: 'ratio-nerd',
+    bestLabel: (b) => `Best: ${b} / 10`,
+  },
+  {
     id: 'zoomed-in',
     emoji: '🔬',
     title: 'Way Too Close',

@@ -1,5 +1,5 @@
 /* Offline-first service worker: precaches the app shell and every flag. */
-const CACHE = 'flaglab-v6';
+const CACHE = 'flaglab-v7';
 
 const HISTORY_FLAGS = [
   'ussr', 'ddr', 'czechoslovakia', 'yugoslavia', 'za1928', 'rhodesia',
@@ -35,6 +35,8 @@ const CORE = [
   './games/speed-sort/game.js',
   './games/flag-mashup/index.html',
   './games/flag-mashup/game.js',
+  './games/ratio-nerd/index.html',
+  './games/ratio-nerd/game.js',
   './js/music.js',
   ...HISTORY_FLAGS.map((f) => `./assets/history/${f}.svg`),
 ];
