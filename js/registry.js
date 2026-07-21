@@ -64,6 +64,15 @@ const GAMES = [
     bestLabel: (b) => `Best: ${b} / 10`,
   },
   {
+    id: 'flag-families',
+    emoji: '🌳',
+    title: 'Flag Families',
+    blurb: 'Sort flags into their design family trees',
+    color: '#e0a458',
+    bestKey: 'flag-families',
+    bestLabel: (b) => `Best: ${b} sorted`,
+  },
+  {
     id: 'zoomed-in',
     emoji: '🔬',
     title: 'Way Too Close',

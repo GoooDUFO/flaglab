@@ -329,6 +329,16 @@ header.app h1 {
 }
 .sort-toast.show { opacity: 1; }
 
+/* ---------- flag families ---------- */
+.fam-card { padding: 14px; margin-bottom: 12px; }
+.fam-card img { width: min(100%, 300px); aspect-ratio: 3 / 2; object-fit: contain; }
+.fam-bins {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.fam-bins .bin { min-height: 96px; font-size: 0.95rem; line-height: 1.3; }
+
 /* ---------- frankenflag ---------- */
 .mash-box {
   position: relative;
@@ -539,6 +549,21 @@ header.app h1 {
   .g-zoom .choice { padding: 12px; font-size: 0.95rem; }
   .g-zoom .fact, .g-zoom .big-btn { grid-column: 2; }
   .g-zoom .end-card { grid-column: 1 / -1; }
+
+  /* Flag Families: flag left, family bins stacked right */
+  .g-fam #stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 0 14px;
+    align-items: start;
+  }
+  .g-fam .fam-card { grid-column: 1; grid-row: 1 / span 2; margin-bottom: 0; }
+  .g-fam .fam-card img { width: min(100%, 340px); }
+  .g-fam .fam-bins { grid-column: 2; grid-template-columns: 1fr; gap: 10px; }
+  .g-fam .fam-bins .bin { min-height: 72px; }
+  .g-fam .fam-bins .bin br { display: none; }
+  .g-fam .sort-toast { grid-column: 2; margin-top: 8px; }
+  .g-fam .end-card { grid-column: 1 / -1; }
 
   /* Frankenflag: monster left, suspects right */
   .g-mash #stage {
